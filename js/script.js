@@ -1,51 +1,21 @@
-'use strict'
+let arr = ['22', '37', '455', '104', '47', '78', '377']; 
 
-//Функция проверяет является числом или нет
-let isNumber = function(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n)
-}
-
-//Функция игрового бота
-let createGame = function(){
-  let correctNumber = Math.floor(Math.random() * 101)
-  console.log(correctNumber)
-  let getNumber = function() {
- 
-    //Функция старта игры
-    let getAnswer = function(data) { 
-      if (data) {
-        getNumber()
-      } else {
-        alert('Спасибо, что поиграли со мной')
-      }
-    }
-  
-    //спросим пользователя + переменная для ответа
-    let answer,
-        userNumber = prompt('Угадай число от 1 до 100')
-    
-    if (userNumber === null) {
-      answer = confirm('Введи число от 0 до 100!');
-      getAnswer(answer);
-    }
-    else if (!isNumber(userNumber) || (parseFloat(userNumber) > 100)){
-      answer = confirm('Введи число от 0 до 100!');
-      getAnswer(answer);
-    }
-    else if (userNumber == correctNumber) {
-      alert('Ты угадал!');
-    } 
-    else if (userNumber > correctNumber) {   
-      answer = confirm('Загаданное число меньше. Попробуй еще');
-      getAnswer(answer);
-    } 
-    else if (userNumber < correctNumber) {
-      answer = confirm('Загаданное число больше. Попробуй еще');
-      getAnswer(answer);
-    }
+arr.forEach((item) => {
+  if (item.startsWith('2') || item.startsWith('4')) {
+    console.log(item);
   }
-  return getNumber
-}    
+});
 
-let game = createGame()
-game()
+
+
+function myFunction(n) {
+    divider:
+        for (let i = 2; i <= 100; i++) {
+            for (let j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) continue divider;     
+            }
+            console.log(i + ' Делители этого числа:  1 и ' + i);
+        }
+}
+myFunction();
+
